@@ -1,1 +1,26 @@
+#form{
 
+
+    display: flex;
+    justify-content: center;
+}
+
+#moviespace{
+
+display: flex;
+
+justify-content: space-around;
+
+justify-content: space-evenly;
+align-content: center;
+align-items: center;
+flex-wrap: wrap;
+
+
+/* margin: 0 px; */
+
+
+
+
+
+}
