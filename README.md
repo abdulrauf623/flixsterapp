@@ -46,11 +46,11 @@ yes, the topics disussed in the giphy lab (third lab) was very relevant to the c
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-i would have made more animations to the website app
+i would have made more animations to the website app like when the user clicks the submit button, i would have added more animations. and the display of the movies in the movies grid would have been more animated
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+
 
 ### Open-source libraries used
 
