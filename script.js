@@ -119,6 +119,8 @@ function loadMore(){
 
     document.getElementById("movie-grid").innerHTML = string
 
+    document.getElementById("nowplaying").innerText = `Now Playing`
+
     const apiURL = APILink + myAPIKey
 
     console.log("api url", apiURL)
@@ -144,6 +146,10 @@ document.querySelector("#form").addEventListener("submit", (event)  => {
 
     document.getElementById("movie-grid").innerHTML= ""
 
+    document.getElementById("nowplaying").innerText = `Search Results`
+
+    document.getElementById("close-button").removeAttribute("hidden")
+
     const apiURL = APIsearch + myAPIKey + search + event.target.searchterm.value
 
     here = apiURL
@@ -166,12 +172,12 @@ document.querySelector("#form").addEventListener("submit", (event)  => {
     }
 
     else{
-
-
-
-        start= 0
+        
+        
+        start = 0
 
         searched = false
+        
 
         getResults("")
     }
@@ -190,9 +196,8 @@ document.querySelector("#form").addEventListener("submit", (event)  => {
 
 
 
-
-
 }
+
 
 
 async function fetchresults(apiURL){
@@ -217,6 +222,22 @@ async function fetchresults(apiURL){
 
         console.log(error)
     }
+
+
+
+}
+
+
+function smart(){
+
+    start = 0
+
+    searched = false
+
+getResults("")
+
+document.getElementById("close-button").setAttribute("hidden", true)
+
 
 
 
