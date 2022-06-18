@@ -2,8 +2,27 @@ const myAPIKey = `5e2be8664fc1cc45634f5797dc4cdf56`
 
 const APILink = `https://api.themoviedb.org/3/movie/now_playing?api_key=`
 
+const APIsearch = `https://api.themoviedb.org/3/search/movie?api_key=`
+
+const search = `&query=`
+
 
 const word = ""
+
+var here = ""
+
+var searched = false
+
+
+var start = 0
+
+var limit = 10
+
+
+
+
+
+
 
 
 
@@ -17,7 +36,10 @@ const generateError = (event) => {
 
 function displayResults(responseData) {
 
-    responseData.results.forEach(data => {
+    const responses = responseData.results.slice(start, start + limit)
+
+    responses.forEach(data => {
+
 
         console.log("something: ")
 
@@ -32,21 +54,21 @@ function displayResults(responseData) {
         let path = `https://www.themoviedb.org/t/p/w600_and_h900_bestv2/` + poster
 
         
-        document.getElementById("moviespace").innerHTML += 
+        document.getElementById("movie-grid").innerHTML += 
 
         `
         
-        <div  class = "photos"> <img src = "${path}" width = "300"> 
+        <div  class = "movie-card"> <img class = "movie-poster" src = "${path}" width = "300"> 
         
         <div id = "rating">
 
-        <div style = "color: white"> ${rating} &#x2B50 </div>
+        <div class = "movie-votes" style = "color: white"> ${rating} &#x2B50 </div>
         
 
         
         </div>
 
-        <div id = "title" style = "color: white"> ${title} </div>
+        <div class = "movie-title" style = "color: white"> ${title} </div>
         
         
         
@@ -65,38 +87,133 @@ function displayResults(responseData) {
 }
 
 
-async function getResults() {
+function loadMore(){
 
-    document.getElementById("moviespace").innerHTML = ""
+    start = start + 1 + limit
+
+
+    if (searched == true){
+
+        fetchresults(here)
+
+    }
+
+
+    else {
+
+    getResults(document.getElementById("movie-grid").innerHTML)
+
+
+    }
+
+
+
+
+
+}
+
+
+ function getResults(string) {
+
+
+
+    document.getElementById("movie-grid").innerHTML = string
 
     const apiURL = APILink + myAPIKey
 
     console.log("api url", apiURL)
 
 
-    try {
+    fetchresults(apiURL)
+
+
+
+}
+
+ 
+function nothing(){
+
+
+document.querySelector("#form").addEventListener("submit", (event)  => {
+
+
+
+    event.preventDefault()
+
+    searched = true
+
+    document.getElementById("movie-grid").innerHTML= ""
+
+    const apiURL = APIsearch + myAPIKey + search + event.target.searchterm.value
+
+    here = apiURL
+
+
+    console.log("Searched word: ", event.target.searchterm.value)
+
+
+    console.log("URL search", apiURL)
+
+
+
+    if (event.target.searchterm.value.length > 1){
+
+
+        start = 0
+
+
+        fetchresults(apiURL)
+    }
+
+    else{
+
+
+
+        start= 0
+
+        searched = false
+
+        getResults("")
+    }
+
+
+
+    
+
+    
+
+
+
+
+}
+)
+
+
+
+
+
+}
+
+
+async function fetchresults(apiURL){
+
+    try{
 
 
         let response = await fetch(apiURL)
 
-
-        console.log("Response: " , response)
+        console.log("Response: ", response)
 
 
         let responseData = await response.json()
 
-
-        console.log("Response Data: " , responseData)
+        console.log("Response Data", responseData)
 
 
         displayResults(responseData)
-
-
     }
-    
 
-    catch (error){
-
+    catch(error){
 
         console.log(error)
     }
@@ -108,7 +225,9 @@ async function getResults() {
 
 window.onload = function(){
 
+getResults("")
+    
 
-    getResults()
+    nothing()
 
 }

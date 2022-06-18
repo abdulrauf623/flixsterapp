@@ -12,29 +12,43 @@
 
     <script src="script.js"></script>
 
-    <div id="navbar" style="background-color: black; height: 60px;">
+    <div id="navbar" style="background-color: black; height: 150px;">
 
 
         <div id="searchthing">
 
        
         <form id="form">
-            <label for="searchterm" style="color: yellow;margin-top: 20px;"> Search Movies here</label>
+            <label for="searchterm" style="color: yellow;margin-top: 60px;"> Search Movies here </label>
 
-            <input class="searchterm" id="searchterm" name="searchterm" placeholder="Enter the name of the movie" style="height: 45px;width: 800px;">
+            <input class="search-input" id="search-input" name="searchterm" placeholder="Enter the name of the movie" style="height: 45px;width: 800px; margin-top: 50px;">
 
-            <button id="searchbutton" type="submit" class="searchform" style="height: 50px;width: 50px;">
+            <button id="searchbutton" type="submit" class="searchform" style="height: 50px;width: 50px; margin-top: 50px;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="ipc-icon ipc-icon--magnify" id="iconContext-magnify" viewBox="0 0 24 24" fill="currentColor" role="presentation"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
             </button>
         </form>
 
     </div>
 
+
+    
+
+    </div>
+
+    <div style="color: white; background-color: black; height: 50px;font-size: 30px;">
+        <div id="nowplaying" style="margin-left:50px">Now Playing</div>
     </div>
 
 
-    <div id="moviespace" style="background-color: black;">
+    <div id="movie-grid" style="background-color: black; color: white;">
 
+    </div>
+
+
+    <div style="background-color: black; height: 60px; display: flex; justify-content: center;">
+        <button type="button" class="load-more-movies-button" id="load-more-movies-button" style="background-color: grey; height: 30px; margin-top: 20px;" onclick= loadMore()>
+            Load More Videos
+        </button>
     </div>
     
 </body>
