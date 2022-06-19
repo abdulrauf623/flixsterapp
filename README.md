@@ -34,7 +34,7 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 ### Walkthrough Video
 
-[`ADD_EMBEDDED_CODE_HERE`](https://recordit.co/Pkw9zxWof3)
+[`ADD_EMBEDDED_CODE_HERE`]([https://recordit.co/Pkw9zxWof3](http://g.recordit.co/Pkw9zxWof3.gif))
 
 ### Reflection
 
